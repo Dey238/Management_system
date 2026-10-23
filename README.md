@@ -60,9 +60,13 @@ Diseño e implementación de una aplicación de gestión para la PyME "Panaderí
 
 ```text
 PyME_Panaderia_Cozi/
-├── interfaz/
-│   ├── Interfaz_principal.py
-│   ├── Login.py
+├── Interfaz/
+│   ├── config.py
+│   ├── componentes.py
+│   ├── formularios.py
+│   ├── ventana_principal.py
+│   ├── interfaz.py
+│   └── login.py
 ├── Datos/
 │   ├── acceso_a_datos.py
 └── Conexion/
@@ -70,6 +74,13 @@ PyME_Panaderia_Cozi/
 ├── main.py
 ├── README.md
 ```
+
+La interfaz está organizada por responsabilidades: `config.py` centraliza la
+configuración visual, `componentes.py` contiene widgets reutilizables,
+`formularios.py` contiene las ventanas modales y `ventana_principal.py`
+gestiona la navegación y los módulos. `interfaz.py` se conserva como punto de
+entrada compatible.
+
 ---
 ## REQUISITOS PREVIOS
 
@@ -173,5 +184,4 @@ Si dice "command not found" o "no se reconoce", hay que agregar MySQL al PATH.
 
     Aclaración: las credenciales están actualmente hardcodeadas en Interfaz/login.py.
     No se validan contra la base de datos. Es una mejora pendiente.
-
 

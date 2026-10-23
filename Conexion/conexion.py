@@ -7,7 +7,7 @@ from mysql.connector import Error, pooling
 DB_CONFIG = {
     "host": os.getenv("DB_HOST", "localhost"),
     "user": os.getenv("DB_USER", "root"),
-    "password": os.getenv("DB_PASSWORD", "tu_contraseña_real"),
+    "password": os.getenv("DB_PASSWORD", "256323890"),
     "database": os.getenv("DB_NAME", "panaderia_cozi"),
     "port": int(os.getenv("DB_PORT", 3306))
 }
