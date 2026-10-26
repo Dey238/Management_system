@@ -7,7 +7,7 @@ class ProductoDAO:
 
     @staticmethod
     def obtener_todos():
-        sql = "SELECT id_producto, nombre, categoria, stock, precio_actual FROM producto ORDER BY id_producto ASC"
+        sql = "SELECT id_producto, nombre, stock, precio_actual FROM producto ORDER BY id_producto ASC"
         try:
             with ConexionDB() as (conexion, cursor):
                 cursor.execute(sql)
@@ -17,10 +17,10 @@ class ProductoDAO:
             return []
 
     @staticmethod
-    def guardar(id_prov, nombre, categoria, precio, stock):
-        sql = "INSERT INTO producto (id_proveedor, nombre, categoria, precio_actual, stock) VALUES (%s, %s, %s, %s, %s)"
+    def guardar(id_prov, nombre, precio, stock):
+        sql = "INSERT INTO producto (id_proveedor, nombre, precio_actual, stock) VALUES (%s, %s, %s, %s)"
         with ConexionDB() as (conexion, cursor):
-            cursor.execute(sql, (id_prov, nombre, categoria, precio, stock))
+            cursor.execute(sql, (id_prov, nombre, precio, stock))
 
     @staticmethod
     def eliminar(id_producto):

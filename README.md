@@ -40,7 +40,7 @@ Diseño e implementación de una aplicación de gestión para la PyME "Panaderí
   * **Izquierda:** Menú con botones para moverse entre: Productos, Ventas, Clientes, Proveedores y Reportes.
   * **Derecha:** Muestra la pantalla del módulo en el que estés (ej. la lista de productos).
 * **Pantalla de Productos:**
-  * Tiene un título, un botón para agregar nuevo producto, una barra para buscar y un filtro por categoría.
+  * Tiene un título y un botón para agregar nuevos productos.
   * Muestra una tabla con: Código, Producto, Stock y Precio.
   * Abajo tiene botones para Editar o Eliminar el producto que selecciones en la tabla.
 * **Tecnología:** Se usa la librería **Tkinter** (Python).
@@ -184,4 +184,3 @@ Si dice "command not found" o "no se reconoce", hay que agregar MySQL al PATH.
 
     Aclaración: las credenciales están actualmente hardcodeadas en Interfaz/login.py.
     No se validan contra la base de datos. Es una mejora pendiente.
-

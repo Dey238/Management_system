@@ -104,7 +104,7 @@ class SistemaPanaderia:
         )
         self.tabla.configurar_columnas([
             ("codigo", "Código", 80, tk.CENTER), ("nombre", "Producto", 250, tk.W),
-            ("categoria", "Categoría", 150, tk.W), ("stock", "Stock", 90, tk.CENTER),
+            ("stock", "Stock", 90, tk.CENTER),
             ("precio", "Precio", 110, tk.E),
         ])
         for producto in ProductoDAO.obtener_todos():

@@ -97,7 +97,7 @@ class VentanaNuevaVenta(FormularioBase):
         ctk.CTkLabel(frame_prod, text="Producto:", text_color=MARRON_OSCURO, font=("Arial", 13, "bold")).grid(
             row=0, column=0, sticky="w", padx=15, pady=(10, 0)
         )
-        self.opciones_prod = [f"{p[0]} - {p[1]} (Stock: {p[3]})" for p in self.lista_productos_cache]
+        self.opciones_prod = [f"{p[0]} - {p[1]} (Stock: {p[2]})" for p in self.lista_productos_cache]
         self.combo_producto = crear_combo(frame_prod, self.opciones_prod, width=330)
         self.combo_producto.grid(row=1, column=0, padx=15, pady=(2, 12))
         ctk.CTkLabel(frame_prod, text="Cantidad:", text_color=MARRON_OSCURO, font=("Arial", 13, "bold")).grid(
@@ -145,7 +145,7 @@ class VentanaNuevaVenta(FormularioBase):
             messagebox.showerror("Error", "La cantidad debe ser un entero mayor a 0.")
             return
         prod_sel = self.lista_productos_cache[idx_prod]
-        id_prod, nombre, stock, precio = prod_sel[0], prod_sel[1], prod_sel[3], float(prod_sel[4])
+        id_prod, nombre, stock, precio = prod_sel[0], prod_sel[1], prod_sel[2], float(prod_sel[3])
         if cantidad > stock:
             messagebox.showerror("Stock Insuficiente", f"Solo hay {stock} unidades disponibles de {nombre}.")
             return
@@ -184,7 +184,7 @@ class VentanaNuevaVenta(FormularioBase):
 
 class VentanaProducto(FormularioBase):
     def __init__(self, parent, al_guardar_callback):
-        super().__init__(parent, "Registrar Nuevo Producto", "380x520")
+        super().__init__(parent, "Registrar Nuevo Producto", "380x450")
         self.al_guardar_callback = al_guardar_callback
         try:
             self.lista_proveedores_cache = ProveedorDAO.obtener_todos()
@@ -200,8 +200,6 @@ class VentanaProducto(FormularioBase):
         self.combo_prov = self.crear_combo(self.opciones_prov)
         self.crear_label("Nombre del Producto:")
         self.entry_nombre = self.crear_entrada()
-        self.crear_label("Categoría:")
-        self.entry_categoria = self.crear_entrada()
         self.crear_label("Precio Actual:")
         self.entry_precio = self.crear_entrada()
         self.crear_label("Stock Inicial:")
@@ -210,7 +208,7 @@ class VentanaProducto(FormularioBase):
 
     def guardar(self):
         idx_prov = indice_combo(self.combo_prov, self.opciones_prov)
-        nombre, categoria = self.entry_nombre.get().strip(), self.entry_categoria.get().strip()
+        nombre = self.entry_nombre.get().strip()
         precio, stock = self.entry_precio.get().strip(), self.entry_stock.get().strip()
         if idx_prov == -1:
             messagebox.showerror("Error", "Por favor seleccione un proveedor de la lista.")
@@ -222,7 +220,7 @@ class VentanaProducto(FormularioBase):
             p_val, s_val = float(precio), int(stock)
             if p_val < 0 or s_val < 0:
                 raise ValueError
-            ProductoDAO.guardar(self.lista_proveedores_cache[idx_prov][0], nombre, categoria, p_val, s_val)
+            ProductoDAO.guardar(self.lista_proveedores_cache[idx_prov][0], nombre, p_val, s_val)
             messagebox.showinfo("Éxito", "Producto guardado correctamente.")
             self.destroy()
             self.al_guardar_callback("Productos")

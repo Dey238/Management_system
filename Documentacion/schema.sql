@@ -15,7 +15,6 @@ CREATE TABLE IF NOT EXISTS producto (
     id_producto INT AUTO_INCREMENT PRIMARY KEY,
     id_proveedor INT NOT NULL,
     nombre VARCHAR(100) NOT NULL,
-    categoria VARCHAR(50),
     precio_actual DECIMAL(10, 2) NOT NULL,
     stock INT NOT NULL DEFAULT 0,
     FOREIGN KEY (id_proveedor) REFERENCES proveedor(id_proveedor) ON DELETE RESTRICT
@@ -56,10 +55,10 @@ INSERT INTO proveedor (nombre_empresa, contacto, telefono, email) VALUES
 ('Harinas del Sur', 'Juan Pérez', '351-4554321', 'ventas@harinasdelsur.com'),
 ('Lácteos La Villa', 'Maria Gómez', '351-4889900', 'contacto@lacteoslavilla.com');
 
-INSERT INTO producto (id_proveedor, nombre, categoria, precio_actual, stock) VALUES 
-(1, 'Pan Criollo (kg)', 'Panadería', 1800.00, 45),
-(1, 'Facturas surtidas (docena)', 'Facturería', 4200.00, 20),
-(2, 'Torta Selva Negra', 'Repostería', 15000.00, 3);
+INSERT INTO producto (id_proveedor, nombre, precio_actual, stock) VALUES
+(1, 'Pan Criollo (kg)', 1800.00, 45),
+(1, 'Facturas surtidas (docena)', 4200.00, 20),
+(2, 'Torta Selva Negra', 15000.00, 3);
 
 INSERT INTO cliente (nombre, apellido, email, telefono, direccion) VALUES 
 ('Carlos', 'López', 'carlos.lopez@email.com', '351-6112233', 'Av. Colón 1234'),

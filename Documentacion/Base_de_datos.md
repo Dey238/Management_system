@@ -4,7 +4,7 @@
     
 * PROVEEDOR: id\_proveedor (PK), nombre\_proveedor, contacto, telefono, email  
     
-* PRODUCTO: id\_producto (PK), id\_proveedor (FK), nombre, categoria, precio\_actual, stock  
+* PRODUCTO: id\_producto (PK), id\_proveedor (FK), nombre, precio\_actual, stock
     
 * VENTA: id\_venta (PK), id\_cliente (FK), fecha\_venta, total  
     
@@ -41,7 +41,6 @@ CREATE TABLE producto (
     id\_producto INTEGER PRIMARY KEY AUTOINCREMENT,  
     id\_proveedor INTEGER NOT NULL,  
     nombre VARCHAR(150) NOT NULL,  
-    categoria VARCHAR(100),  
     precio\_actual DECIMAL(10,2) NOT NULL CHECK (precio\_actual \> 0),  
     stock INTEGER NOT NULL CHECK (stock \>= 0),  
     CONSTRAINT fk\_producto\_proveedor   
