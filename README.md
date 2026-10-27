@@ -1,21 +1,10 @@
 # Sistema de gestion Panaderia Cozi
 Diseño e implementación de una aplicación de gestión para la PyME "Panadería Cozi", optimizando el inventario, la gestión de ventas y la reposición de stock desarrollada para la Tecnicatura Superior en Desarrollo de Software del ISPC.
 
-**PROGRAMACIÓN Y BASE DE DATOS** - **MÓDULO PROGRAMADOR**  
+**PROGRAMACIÓN Y BASE DE DATOS** - **MÓDULO PROGRAMADOR**
 
-**PROFESORES:** 
-- Maria Florencia Garcia Zavia  
-- Enzo Eduardo Bruno
-  
-**CICLO LECTIVO:** 2026  
 
-### INTEGRANTES Y ROLES:
-* **Coordinador:** Rodriguez Sofia Belen 
-* **Modelo de datos:** Machado Rebeca Anahi, Miranda Nicolas
-* **Interfaz:** Puntano Ezequiel 
-* **Acceso a datos:** Parra Alexander 
-* **Validaciones:** Tula Emiliano
-* **Documentación y pruebas:** Molina Ricardo
+**CICLO LECTIVO:** 2026
 
 ---
 
